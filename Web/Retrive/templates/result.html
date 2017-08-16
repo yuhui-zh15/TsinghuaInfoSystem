@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tsinghua Info System</title>
+
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+    <script type="text/javascript" src="../../static/js/jquery-1.11.1.min.js"></script>
+    <!-- Loading Bootstrap -->
+    <link href="../../static/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../../static/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="../../static/docs/assets/css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/img/favicon.ico">
+
+  </head>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("#all-button").click(function(){
+      $.get("/retrive/", {},
+      function(data,status){
+        window.open('?key={{key}}')
+      });
+    });
+  });
+  $(document).ready(function(){
+    $("#year-button").click(function(){
+      $.get("/retrive/", {},
+      function(data,status){
+        window.open('?key={{key}}&filter=year')
+      });
+    });
+  });
+  $(document).ready(function(){
+    $("#month-button").click(function(){
+      $.get("/retrive/", {},
+      function(data,status){
+        window.open('?key={{key}}&filter=month')
+      });
+    });
+  });
+  $(document).ready(function(){
+    $("#week-button").click(function(){
+      $.get("/retrive/", {},
+      function(data,status){
+        window.open('?key={{key}}&filter=week')
+      });
+    });
+  });
+  $(document).ready(function(){
+    $("#day-button").click(function(){
+      $.get("/retrive/", {},
+      function(data,status){
+        window.open('?key={{key}}&filter=day')
+      });
+    });
+  });
+  </script>
+
+  <body>
+    <div class="container">
+      <div style="padding-bottom: 40px;">
+        <div class="row" style="margin-left:auto; margin-right:auto;">
+          <h2>&nbsp;Tsinghua Info System</h2>
+          <form method="get" action="/retrive/">
+          <div class="col-xs-5">
+            <div class="form-group">
+              <input type="text" value={{key}} name="key" placeholder="Key words" class="form-control" />
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search" />
+            </div>
+          </div>
+          <div class="col-xs-5">
+              <div class="btn-toolbar">
+                <div class="btn-group">
+                  <a class="btn btn-primary" id="all-button">全部</a>
+                  <a class="btn btn-primary" id="day-button">一天</a>
+                  <a class="btn btn-primary" id="week-button">一周</a>
+                  <a class="btn btn-primary" id="month-button">一月</a>
+                  <a class="btn btn-primary" id="year-button">一年</a>
+                </div>
+              </div> <!-- /toolbar -->
+          </div>
+        </div>
+      </div>
+      
+      {% for item in items %}
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <a class="lead" href="{{item.url}}">{{item.title}}</a>
+          <div class="timelabel"><img src="../../static/img/icons/svg/clocks.svg" alt="Watches" height="20px"><small>{{item.time}}</small></div>
+          <blockquote>
+            {% autoescape off %}
+            <p> {{item.text}}</p>
+            {% endautoescape %}
+          </blockquote>
+        </div>
+      </div>
+
+      {% endfor %}
+
+      
+      <div class="row demo-row" style="padding-left: 300px; padding-top: 100px;">
+        <div class="col-xs-3">
+          <input name="prev" class="btn btn-block btn-lg btn-primary" value="Prev" type="submit" />
+        </div>
+        <div class="col-xs-3">
+          <input name="next" class="btn btn-block btn-lg btn-warning" value="Next" type="submit" />
+        </div>
+      </div> 
+      </form>
+
+    </div>
+
+    <div class="footer">
+      
+    </div>
+
+    <script src="../../static/dist/js/vendor/jquery.min.js"></script>
+    <script src="../../static/dist/js/vendor/video.js"></script>
+    <script src="../../static/dist/js/flat-ui.min.js"></script>
+    <script src="../../static/docs/assets/js/application.js"></script>
+  </body>
+</html>

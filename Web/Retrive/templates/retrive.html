@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Retrive</title>
+
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="../../static/dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="../../static/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="../../static/docs/assets/css/demo.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../../static/img/favicon.ico">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="login">
+        <div class="login-screen">
+          <div class="login-icon">
+            <img src="../../static/img/login/icon.png" alt="Welcome to Mail App" />
+            <h4>Welcome to <br\><small>Tsinghua</small>Info System</h4>
+          </div>
+          
+          <form method="get" action="/retrive/">
+          <div class="login-form">
+            <div class="form-group">
+              <input type="text" name="key" class="form-control login-field" value="" placeholder="Enter the key word" id="key" />
+              <label class="login-field-icon fui-search" for="login-name"></label>
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="search" />
+          </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../static/dist/js/vendor/jquery.min.js"></script>
+    <script src="../../static/dist/js/vendor/video.js"></script>
+    <script src="../../static/dist/js/flat-ui.min.js"></script>
+    <script src="../../static/docs/assets/js/application.js"></script>
+  </body>
+</html>
